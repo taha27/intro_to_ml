@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+from os import path
 import numpy as np
 import matplotlib.pyplot as plt
 import pylab as pl
@@ -33,7 +34,7 @@ def prettyPicture(clf, X_test, y_test):
     plt.xlabel("bumpiness")
     plt.ylabel("grade")
 
-    plt.savefig("test.png")
+    plt.savefig(f"{path.dirname(path.realpath(__file__))}/predicted_labels.png")
 
 import base64
 import json

@@ -12,7 +12,8 @@
 
 import sys
 from time import time
-sys.path.append("G:/Programming/Udacity/ud120-projects/")
+from os import path
+sys.path.append(path.dirname(path.dirname(path.realpath(__file__))))
 from tools.email_preprocess import preprocess
 
 
@@ -23,17 +24,14 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 #########################################################
 ### your code goes here ###
-
+from sklearn.naive_bayes import GaussianNB
 start_time = time()
 
-from sklearn.naive_bayes import GaussianNB
 clf = GaussianNB()
 clf.fit(features_train, labels_train)
-
 training_time = time()
 
 accuracy = clf.score(features_test, labels_test)
-
 end_time = time()
 
 print(f"Accuracy of the Gaussian Naive Bayes classifier: {accuracy}")

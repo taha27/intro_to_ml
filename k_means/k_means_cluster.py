@@ -11,8 +11,9 @@ import pickle
 import numpy
 import matplotlib.pyplot as plt
 import sys
-sys.path.append("../tools/")
-from feature_format import featureFormat, targetFeatureSplit
+from os import path
+sys.path.append(path.dirname(path.dirname(path.realpath(__file__))))
+from tools.feature_format import featureFormat, targetFeatureSplit
 
 
 
@@ -39,7 +40,7 @@ def Draw(pred, features, poi, mark_poi=False, name="image.png", f1_name="feature
 
 
 ### load in the dict of dicts containing all the data on each person in the dataset
-data_dict = pickle.load( open("../final_project/final_project_dataset.pkl", "r") )
+data_dict = pickle.load( open("final_project/final_project_dataset.pkl", "rb") )
 ### there's an outlier--remove it!
 data_dict.pop("TOTAL", 0)
 

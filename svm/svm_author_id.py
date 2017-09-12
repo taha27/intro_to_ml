@@ -10,7 +10,8 @@
 
 import sys
 from time import time
-sys.path.append("G:/Programming/Udacity/ud120-projects/")
+from os import path
+sys.path.append(path.dirname(path.dirname(path.realpath(__file__))))
 from tools.email_preprocess import preprocess
 
 
@@ -22,11 +23,11 @@ features_train, features_test, labels_train, labels_test = preprocess()
 #########################################################
 ### your code goes here ###
 from sklearn.svm import SVC
+start_time = time()
 
 # features_train = features_train[:len(features_train)//100]
 # labels_train = labels_train[:len(labels_train)//100]
 
-start_time = time()
 clf = SVC(kernel='rbf', C=10000)
 clf.fit(features_train, labels_train)
 training_time = time()

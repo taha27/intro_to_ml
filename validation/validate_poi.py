@@ -12,10 +12,11 @@
 
 import pickle
 import sys
-sys.path.append("../tools/")
-from feature_format import featureFormat, targetFeatureSplit
+from os import path
+sys.path.append(path.dirname(path.dirname(path.realpath(__file__))))
+from tools.feature_format import featureFormat, targetFeatureSplit
 
-data_dict = pickle.load(open("../final_project/final_project_dataset.pkl", "r") )
+data_dict = pickle.load(open("final_project/final_project_dataset.pkl", "rb") )
 
 ### first element is our labels, any added elements are predictor
 ### features. Keep this the same for the mini-project, but you'll
@@ -27,6 +28,6 @@ labels, features = targetFeatureSplit(data)
 
 
 
-### it's all yours from here forward!  
+### it's all yours from here forward!
 
 

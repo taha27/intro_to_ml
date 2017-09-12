@@ -13,10 +13,11 @@
 
 import pickle
 import sys
-sys.path.append("../tools/")
-from feature_format import featureFormat, targetFeatureSplit
+from os import path
+sys.path.append(path.dirname(path.dirname(path.realpath(__file__))))
+from tools.feature_format import featureFormat, targetFeatureSplit
 
-data_dict = pickle.load(open("../final_project/final_project_dataset.pkl", "r") )
+data_dict = pickle.load(open("final_project/final_project_dataset.pkl", "rb") )
 
 ### add more features to features_list!
 features_list = ["poi", "salary"]
@@ -26,6 +27,6 @@ labels, features = targetFeatureSplit(data)
 
 
 
-### your code goes here 
+### your code goes here
 
 
